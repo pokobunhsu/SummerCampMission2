@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoList主線任務三</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <div class="box">
+        <input type="text" v-model="text"><button @click="addList">新增資料</button>
+        <ul>
+            <li v-for="item in data" :key="item.id"><span class="content">{{item.text}}</span>
+                <div class="option">
+                    <button class="edit" @click="editList(item)">編輯資料</button>
+                    <button class="remove" @click="removeList(item)">移除資料</button>
+                </div>
+            </li>
+        </ul>
+        <br><br>
+        <input type="text" v-model="temp.text" :style="canEdit"><button @click="updateList()">資料更新</button>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
