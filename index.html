@@ -12,7 +12,7 @@
 
 <body>
     <div class="box">
-        <input type="text" v-model="text"><button @click="addList">新增資料</button>
+        <input type="text" v-model="text" placeholder="請輸入代辦事項"><button @click="addList">新增資料</button>
         <div class="filter">
             <button class="tag" @click="status = 'all'">全部</button>
             <button class="tag" @click="status = 'finish'">已完成</button>
@@ -31,7 +31,8 @@
         </ul>
         <br><br>
         <div class="show" v-if="canEdit == true">
-            <input type="text" v-model="temp.text" :style="canEdit"><button @click="updateList()">資料更新</button>
+            <input type="text" v-model="temp.text" :style="canEdit" placeholder="請輸入要修改的內容"><button
+                @click="updateList()">資料更新</button>
         </div>
     </div>
 
