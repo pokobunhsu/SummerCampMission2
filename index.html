@@ -13,16 +13,26 @@
 <body>
     <div class="box">
         <input type="text" v-model="text"><button @click="addList">新增資料</button>
+        <div class="filter">
+            <button class="tag" @click="status = 'all'">全部</button>
+            <button class="tag" @click="status = 'finish'">已完成</button>
+            <button class="tag" @click="status = 'nofinish'">未完成</button>
+
+        </div>
         <ul>
-            <li v-for="item in data" :key="item.id"><span class="content">{{item.text}}</span>
+            <li v-for="item in filter" :key="item.id"><span :class="item.isfin ? 'fin' : ''">{{item.text}}</span>
                 <div class="option">
+                    <button class="tagFinish" @click="tagfinish(item)" v-if="item.isfin == false">標記為完成</button>
+                    <button class="tagFinish" @click="tagfinish(item)" v-else>標記為未完成</button>
                     <button class="edit" @click="editList(item)">編輯資料</button>
                     <button class="remove" @click="removeList(item)">移除資料</button>
                 </div>
             </li>
         </ul>
         <br><br>
-        <input type="text" v-model="temp.text" :style="canEdit"><button @click="updateList()">資料更新</button>
+        <div class="show" v-if="canEdit == true">
+            <input type="text" v-model="temp.text" :style="canEdit"><button @click="updateList()">資料更新</button>
+        </div>
     </div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
