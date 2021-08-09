@@ -88,11 +88,11 @@ li {
     align-items: center;
 }
 
-.content {
-    text-align: center;
-    padding-right: 10px;
-}
-
 .option {
     display: inline;
+}
+
+.fin {
+    text-decoration: line-through;
+    color: #48ff00;
 }
